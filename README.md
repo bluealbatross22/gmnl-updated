@@ -29,7 +29,7 @@ Your GMNL package is now ready for use!
 
 The GMNL package requires your data to be in a specific format. If you have previously used the `mlogit.data()`, this will be the same but instead you will call `gmnl.data()`. `gmnl.data()` uses the same inputs, so if you have existing code you simply can replace the function name and it will work. 
 
-```markdown
+```
 data("TravelMode", package = "AER") # import the dataset 
 
 TM <- gmnl.data(TravelMode,choice = "choice", shape = "long", alt.levels = c("air", "train", "bus", "car"))
@@ -46,7 +46,7 @@ Electr <- gmnl.data(Electricity, id.var = "id", choice = "choice", varying = 3:2
 
 The McFadden $R^2$ is a measure of fit for the model. It is computed as follows:
 
-```markdown
+```
 # Format out data to the gmnl data type 
 NYC <- gmnl.data(NYC_short, 
                 id.var = "ResponseId", 
@@ -67,9 +67,9 @@ summary(mod1)
 
 ```
 
-It is possible to simply return the McFadden values by calling the respective McFadden $R^2$ and McFadden $R^_{Adj}$ functions on the returned model object.
+It is possible to simply return the McFadden values by calling the respective McFadden $R^2$ and McFadden $R^2_{Adj}$ functions on the returned model object.
 
-```markdown
+```
 mcfadden.gmnl(mod1)
 # 0.216984
 
@@ -96,7 +96,7 @@ Similar to McFadden, $\rho^2$ allows us to see the performance of our model in t
 
 $\rho^{2}_{ASC} = 1 - \frac{L(\hat{\beta})}{L(ASC)}$
 
-${\rho^{2}_{ASC}}_{adj} = 1 - \frac{L(\hat{\beta}) - K}{L(ASC)}$
+$\rho^{2}_{ASCadj} = 1 - \frac{L(\hat{\beta}) - K}{L(ASC)}$
 
 This statistic functions in a similar manner to McFadden’s where the larger the value, the better the model for the particular set of data. The difference between the two statistics is that $L(ASC)$ is not a null model. We use $L(ASC)$ to represent the model where the choice probabilities are constant across all alternatives and no predictors are considered. In terms of the name of $L(ASC)$ being used instead of something more intuitive like $L(ll_1)$, this model is useful to help compare a model with alternative specific constants to one without. Although this statistic is displayed for models both with and without alternative specific constants, it helps evaluate if the use of alternative specific constants allow for the model to capture preference which is not explained by an explanatory variable included in the model. Accounting for unobserved factors can improve the model fit. For the adjusted version of this model, it is similar to McFadden's where it penalizes for the amount of explanatory variables inclued in the model. 
 
