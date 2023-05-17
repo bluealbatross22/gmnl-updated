@@ -94,9 +94,9 @@ mod1_mcfA$mcfaddenadj
 
 Similar to McFadden, $\rho^2$ allows us to see the performance of our model in terms of capturing unobserved preference traits of our population. We can run a model on the same data as the above where we include alternative specific constants in our model to see if we are able to better predict preference. We have also included the feature of simply returning the $\rho^2$ or ${\rho^2}_{Adj}$ value by directly calling the functions associated with calculating the respective value.
 
-$\rho\textsuperscript{2}_{ASC} = 1 - \frac{L(\hat{\beta})}{L(ASC)}$
+$\rho^{2}_{ASC} = 1 - \frac{L(\hat{\beta})}{L(ASC)}$
 
-${\rho\textsuperscript{2}_{ASC}}_{adj} = 1 - \frac{L(\hat{\beta}) - K}{L(ASC)}$
+${\rho^{2}_{ASC}}_{adj} = 1 - \frac{L(\hat{\beta}) - K}{L(ASC)}$
 
 This statistic functions in a similar manner to McFadden’s where the larger the value, the better the model for the particular set of data. The difference between the two statistics is that $L(ASC)$ is not a null model. We use $L(ASC)$ to represent the model where the choice probabilities are constant across all alternatives and no predictors are considered. In terms of the name of $L(ASC)$ being used instead of something more intuitive like $L(ll_1)$, this model is useful to help compare a model with alternative specific constants to one without. Although this statistic is displayed for models both with and without alternative specific constants, it helps evaluate if the use of alternative specific constants allow for the model to capture preference which is not explained by an explanatory variable included in the model. Accounting for unobserved factors can improve the model fit. For the adjusted version of this model, it is similar to McFadden's where it penalizes for the amount of explanatory variables inclued in the model. 
 
